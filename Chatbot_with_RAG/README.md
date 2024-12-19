@@ -1,3 +1,20 @@
+## A Description
+This architecture demonstrates a modern customer service solution that leverages open-source tools and AI models to build a powerful knowledge retrieval system. Here's how it works:
+The knowledge base creation pipeline starts with a Document Repository containing organizational documentation, user guides, and other materials. The Vector Generation service processes these documents using:
+
+PyPDF and other document parsers to extract text from various file formats
+LangChain's text splitters to chunk documents into manageable segments
+Open-source embedding models to convert text chunks into vector representations
+FAISS-CPU for efficient vector storage and similarity search capabilities
+
+For the user interaction flow through Slack:
+
+Users submit queries via Slack channel
+The Slack-RAG Gateway service receives these queries
+LangChain's retrieval modules search the FAISS vector store to find relevant document chunks
+Retrieved context is combined with the user query using LangChain's prompt templates
+The combined prompt is sent to Amazon Bedrock for generating the final response
+
 ## What is RAG
 
 RAG (Retrieval-Augmented Generation) is a machine learning framework that enhances the performance of generative models by combining them with information retrieval techniques. This approach allows a language model to generate more accurate, context-aware, and factual responses by retrieving relevant information from custom CBS documentation, vendor user training documents, etc.
